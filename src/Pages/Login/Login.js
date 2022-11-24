@@ -1,11 +1,15 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const { signIn, signInWithGoogle } = useContext(AuthContext);
   const [loginError, setLoginError] = useState('');
 
   const handleLogin = data => {
@@ -14,6 +18,8 @@ const Login = () => {
     signIn(data.email, data.password)
         .then(result => {
             const user = result.user;
+            toast.success("User login successfully")
+            navigate(from, { replace: true });
             console.log(user);
             // setLoginUserEmail(data.email);
         })
@@ -23,6 +29,19 @@ const Login = () => {
         });
 }
 
+const handleGoogleSignIn = () => {
+  signInWithGoogle()
+    .then((result) => {
+      // setLoading(false);
+      const user = result.user;
+     
+      console.log(user);
+       navigate(from, { replace: true });
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
   return (
     <div className="md:flex my-12 justify-around">
       <div>
@@ -89,7 +108,7 @@ const Login = () => {
           <div className="flex-1 h-px sm:w-16"></div>
         </div>
         <div className="flex justify-center space-x-4">
-          <button aria-label="Log in with Google" className="p-3 rounded-full hover:bg-orange-200">
+          <button onClick={handleGoogleSignIn} aria-label="Log in with Google" className="p-3 rounded-full hover:bg-orange-200">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"

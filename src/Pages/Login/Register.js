@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
@@ -15,6 +16,7 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                toast.success('User created successfully')
                 const userInfo = {
                   displayName: data.name
               }
@@ -54,7 +56,7 @@ const handleGoogleSignIn = () => {
       const user = result.user;
       saveUserInDb(user.displayName,user.email, user.role="buyer")
       console.log(user);
-      // navigate(from, { replace: true });
+      //  navigate(from, { replace: true });
     })
     .catch((error) => {
       console.error(error);
