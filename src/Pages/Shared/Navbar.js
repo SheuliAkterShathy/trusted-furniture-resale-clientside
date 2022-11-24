@@ -13,8 +13,8 @@ const Navbar = () => {
 
     const menuItems = <React.Fragment>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/appointment">Appointment</Link></li>
-        <li><Link to="/about">About</Link></li>
+        <li><Link to="/blog">Blog</Link></li>
+        <li><Link to="/dashboard">Dashboard</Link></li>
         <li><Link to="/login">Login</Link></li>
         {/* {user?.uid ?
             <>

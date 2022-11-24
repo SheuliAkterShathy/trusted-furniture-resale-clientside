@@ -1,0 +1,59 @@
+[
+    {
+        "categoryName": "Bedroom Furniture",
+         "productName": "Almira",
+         "categoryId": "637f3b34473a3c5b36b3f75a",
+         "location": "Cumilla",
+         "resalePrice": "15k",
+         "orginalPrice": "30k",
+         "use": "1year",
+         "postedTime": "20/09/22",
+         "Seller": "Zowa",
+         "Details":"Wood is a porous and fibrous structural tissue found in the stems and roots of trees and other woody plants",
+        "img": "https://img.freepik.com/premium-photo/3d-render-living-room-with-almirah-modern-apartment-interior-design_324842-90.jpg?size=626&ext=jpg&ga=GA1.2.258402809.1666072521&semt=sph"
+    },
+    {
+        "categoryName": "Bedroom Furniture",
+         "productName": "Khat",
+         "categoryId": "637f3b34473a3c5b36b3f75a",
+         "location": "Cumilla",
+         "resalePrice": "10k",
+         "orginalPrice": "30k",
+         "use": "1.5year",
+         "postedTime": "20/08/22",
+         "Seller": "Zowa",
+         "Details":"Wood is a porous and fibrous structural tissue found in the stems and roots of trees and other woody plants",
+        "img": "https://as1.ftcdn.net/v2/jpg/00/49/75/04/1000_F_49750449_LVfQnCzBDDyI6ckWip6rSh3BWcxDTTgf.jpg"
+    },
+    {
+        "categoryName": "Drawing Room Furniture",
+        "productName": "Sofa",
+        "categoryId": "637f3b34473a3c5b36b3f75b",
+        "location": "Cumilla",
+        "resalePrice": "12k",
+        "orginalPrice": "40k",
+        "use": "1.2year",
+        "postedTime": "10/10/22",
+        "Seller": "Zowa",
+        "Details":"Wood is a porous and fibrous structural tissue found in the stems and roots of trees and other woody plants",
+      "img": "https://img.freepik.com/free-psd/cozy-living-room-with-brown-sofa-large-window_176382-1509.jpg?size=626&ext=jpg&ga=GA1.2.258402809.1666072521&semt=sph"
+    },
+    {
+        "categoryName": "Drawing Room Furniture",
+        "productName": "BookSelf",
+        "categoryId": "637f3b34473a3c5b36b3f75b",
+        "location": "Cumilla",
+        "resalePrice": "7k",
+        "orginalPrice": "25k",
+        "use": "6 month",
+        "postedTime": "10/10/22",
+        "Seller": "selina",
+        "Details":"Wood is a porous and fibrous structural tissue found in the stems and roots of trees and other woody plants",
+      "img": "https://img.freepik.com/free-psd/cozy-living-room-with-brown-sofa-large-window_176382-1509.jpg?size=626&ext=jpg&ga=GA1.2.258402809.1666072521&semt=sph"
+    },
+    {
+      "img": "https://i.ibb.co/wJcDbNJ/dining.webp",
+      "categoryName": "Dining Room Furniture"
+    }
+   
+  ]
