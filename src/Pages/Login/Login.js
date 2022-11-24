@@ -1,14 +1,27 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  // const [loginError, setLoginError] = useState('');
+  const { signIn } = useContext(AuthContext);
+  const [loginError, setLoginError] = useState('');
 
-   const handleLogin = data =>{
-    console.log(data)
-   }
+  const handleLogin = data => {
+    console.log(data);
+    setLoginError('');
+    signIn(data.email, data.password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            // setLoginUserEmail(data.email);
+        })
+        .catch(error => {
+            console.log(error.message)
+            setLoginError(error.message);
+        });
+}
 
   return (
     <div className="md:flex my-12 justify-around">
@@ -62,6 +75,9 @@ const Login = () => {
               </a>
             </div>
             {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
+          </div>
+          <div>
+          {loginError && <p className='text-red-600'>{loginError}</p>}
           </div>
           <button type="submit" className="block w-full p-3 text-center rounded-sm bg-orange-100 hover:bg-orange-200 ">
             Log In

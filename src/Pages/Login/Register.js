@@ -6,7 +6,7 @@ import { AuthContext } from "../../contexts/AuthProvider";
 const Register = () => {
 
   const { register, handleSubmit, formState: { errors } } = useForm();
-   const { createUser, updateUser } = useContext(AuthContext);
+   const { createUser, updateUser,signInWithGoogle } = useContext(AuthContext);
   const [signUpError, setSignUPError] = useState('');
 
   const handleSignUp = data => {
@@ -20,9 +20,8 @@ const Register = () => {
               }
 
               updateUser(userInfo)
-              .then(result=>{
-                const user=result.user;
-                console.log(user)
+              .then(()=>{
+                saveUserInDb(data.name,data.email,data.role)
               })
               .catch(err => console.log(err));
               })
@@ -32,6 +31,35 @@ const Register = () => {
               })
   }
 
+
+  const saveUserInDb = (name, email,role) =>{
+    const user ={name, email,role};
+    fetch('http://localhost:5000/users', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    })
+    .then(res => res.json())
+    .then(data =>{
+        console.log(data)
+    })
+}
+
+const handleGoogleSignIn = () => {
+  signInWithGoogle()
+    .then((result) => {
+      // setLoading(false);
+      const user = result.user;
+      saveUserInDb(user.displayName,user.email, user.role="buyer")
+      console.log(user);
+      // navigate(from, { replace: true });
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
   return (
     <div className="md:flex my-12 justify-around items-center">
       <div>
@@ -85,7 +113,7 @@ const Register = () => {
               Select Option of Account
             </label>
             <select  {...register('role')} className="select input-bordered w-full">
-              <option value='byer'> Buyer</option>
+              <option value='buyer'> Buyer</option>
               <option value='seller'> Seller</option>
             </select>
           </div>
@@ -126,7 +154,7 @@ const Register = () => {
           <div className="flex-1 h-px sm:w-16"></div>
         </div>
         <div className="flex justify-center space-x-4">
-          <button
+          <button onClick={handleGoogleSignIn}
             aria-label="Log in with Google"
             className="p-3 rounded-full hover:bg-orange-100"
           >
