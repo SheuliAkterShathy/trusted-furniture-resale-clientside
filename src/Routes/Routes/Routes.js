@@ -10,6 +10,7 @@ import Products from "../../Pages/Home/Products";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Login/Register";
 import PrivateRoute from "./PrivateRoute";
+import SellerRoute from "./SellerRoute";
 
 const router = createBrowserRouter([
 {
@@ -50,11 +51,11 @@ const router = createBrowserRouter([
         // },
         {
             path: '/dashboard/addProducts',
-            element: <AddProducts></AddProducts>
+            element: <SellerRoute><AddProducts></AddProducts></SellerRoute>
         },
         {
             path: '/dashboard/myProducts',
-            element: <MyProducts></MyProducts>
+            element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
         },
         {
             path: '/dashboard/myOrders',
