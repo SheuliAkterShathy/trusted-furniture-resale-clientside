@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const BookingModal = ({productItem,setProductItem,refetch}) => {
@@ -6,9 +7,48 @@ const BookingModal = ({productItem,setProductItem,refetch}) => {
     console.log(productItem)
     const { user } = useContext(AuthContext);
 
-    const handleBooking=()=>{
+    const handleBooking = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const phone = form.phone.value;
+        const price = form.price.value;
+        const location = form.location.value;
+        
+        const booking = {
+            productName:productItem.name,
+            image:productItem.image,
+            price,
+            email,
+            phone,
+            location
+        }
+
+       console.log(booking)
+        fetch('http://localhost:5000/bookings', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(booking)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                    setProductItem(null);
+                    toast.success('Booking is confirmed successfully');
+                    refetch();
+                }
+                else{
+                    toast.error(data.message);
+                }
+            })
+
 
     }
+
+
   return (
     <div>
       {/* The button to open modal */}
@@ -27,6 +67,8 @@ const BookingModal = ({productItem,setProductItem,refetch}) => {
                         <input name="name" type="text" defaultValue={user?.displayName} disabled placeholder="Your Name" className="input w-full input-bordered" />
 
                         <input name="email" type="email" defaultValue={user?.email} disabled placeholder="Email Address" className="input w-full input-bordered" />
+
+                        <input name="name" type="text" defaultValue={ name} disabled placeholder="Product Name" className="input w-full input-bordered" />
 
                         <input name="price" type="text" defaultValue={ resalePrice} disabled placeholder="Price Number" className="input w-full input-bordered" />
                 

@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const AddProducts = () => {
@@ -13,6 +14,8 @@ const AddProducts = () => {
   const {user} = useContext(AuthContext)
   const imageHostKey = process.env.REACT_APP_imgbb_key;
    
+
+  const navigate = useNavigate()
   const { data: categories = [] } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
@@ -68,7 +71,7 @@ const AddProducts = () => {
                 console.log(result);
                 toast.success(`${data.productName} is added successfully`);
               
-                // navigate('/dashboard/managedoctors')
+                 navigate('/dashboard/myProducts')
             })
         }
     })
