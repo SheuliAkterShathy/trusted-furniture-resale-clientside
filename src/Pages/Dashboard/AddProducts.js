@@ -48,6 +48,8 @@ const AddProducts = () => {
                 categoryName: data.categoryName,
                 used: data.use,
                 details: data.details,
+                phone:data.phone,
+                location:data.location,
                 image: imgData.data.url
             }
             // save product information to the database
@@ -63,6 +65,7 @@ const AddProducts = () => {
             .then(result =>{
                 console.log(result);
                 toast.success(`${data.productName} is added successfully`);
+                data.reset('')
                 // navigate('/dashboard/managedoctors')
             })
         }
@@ -166,6 +169,19 @@ const AddProducts = () => {
             <input
               type="text"
               {...register("phone", {
+                required: true,
+              })}
+              className="input input-bordered w-full max-w-xs"
+            />
+          </div>
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              {" "}
+              <span className="label-text">Location</span>
+            </label>
+            <input
+              type="text"
+              {...register("location", {
                 required: true,
               })}
               className="input input-bordered w-full max-w-xs"
