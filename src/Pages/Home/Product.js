@@ -1,6 +1,6 @@
 import React from "react";
 
-const Product = ({product}) => {
+const Product = ({product,setProductItem}) => {
     const {name,location,resalePrice,orginalPrice,postedTime,condition,used,image,seller,phone,details} = product;
   return (
     <div className="card lg:card-side bg-base-100 shadow-xl  m-10">
@@ -9,7 +9,7 @@ const Product = ({product}) => {
       </figure>
       <div className="card-body w-2/3">
         <h2 className="card-title">{name}</h2>
-        <p className="mb-0">{details}</p>
+        
        <div className="flex gap-8">
        
        <div>
@@ -30,11 +30,12 @@ const Product = ({product}) => {
         <p>Location:{location}</p>
         <p>Phone:{phone}</p>
         </div>
-        
        </div>
+        <p className="mb-0">{details}</p>
 
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Book Now</button>
+          {/* <button htmlFor="booking-modal" className="btn btn-primary">Book Now</button> */}
+          <label onClick={()=>setProductItem(product)} htmlFor="booking-modal" className="bg-orange-300 p-2 rounded-md cursor-pointer hover:bg-amber-400">Book Now</label>
         </div>
       </div>
     </div>

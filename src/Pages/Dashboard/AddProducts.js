@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const AddProducts = () => {
   const {
@@ -9,7 +10,7 @@ const AddProducts = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
+  const {user} = useContext(AuthContext)
   const imageHostKey = process.env.REACT_APP_imgbb_key;
    
   const { data: categories = [] } = useQuery({
@@ -50,7 +51,8 @@ const AddProducts = () => {
                 details: data.details,
                 phone:data.phone,
                 location:data.location,
-                image: imgData.data.url
+                image: imgData.data.url,
+                email:user.email
             }
             // save product information to the database
             fetch('http://localhost:5000/products', {
@@ -65,7 +67,7 @@ const AddProducts = () => {
             .then(result =>{
                 console.log(result);
                 toast.success(`${data.productName} is added successfully`);
-                data.reset('')
+              
                 // navigate('/dashboard/managedoctors')
             })
         }
