@@ -47,7 +47,7 @@ const AllSellers = () => {
         }
       };
 
-      
+
     if(isLoading){
         return <p>Loading....</p>
     }
@@ -73,7 +73,7 @@ const AllSellers = () => {
                             allSellers.map((seller, i) => <tr key={seller._id}>
                                 <th>{i + 1}</th>
                                 
-                                <td><img className='w-16' src={seller?.image} alt="" /></td>
+                                <td><img className='w-16 h-12' src={seller?.image} alt="" /></td>
                                 <td>{seller.name}</td>
                                 <td>{seller.email}</td>
                                  <td><button onClick={()=>handleDelete(seller._id)} className='bg-error btn-xs rounded-md'>Delete</button></td>
