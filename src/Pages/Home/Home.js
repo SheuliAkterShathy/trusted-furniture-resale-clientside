@@ -48,7 +48,7 @@ const Home = () => {
 
       {/* categories section */}
       <section>
-        <div className="grid grid-cols-3 gap-6 my-12">
+        <div className="grid lg:grid-cols-3 gap-6 my-12">
           {categories.map((category) => (
             <Category category={category} key={category._id}></Category>
           ))}

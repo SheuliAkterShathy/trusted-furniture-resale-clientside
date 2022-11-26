@@ -4,13 +4,13 @@ const Product = ({product,setProductItem}) => {
     const {name,location,resalePrice,orginalPrice,postedTime,condition,used,image,seller, email,phone,details} = product;
   return (
     <div className="card lg:card-side bg-base-100 shadow-xl  m-10">
-      <figure className="w-1/3">
+      <figure className="lg:w-1/3">
         <img className="w-96 h-96" src={image} alt="Album" />
       </figure>
-      <div className="card-body w-2/3">
+      <div className="card-body lg:w-2/3">
         <h2 className="card-title">{name}</h2>
         
-       <div className="flex gap-8">
+       <div className="lg:flex gap-8">
        
        <div>
        <p>Orginal Price:{orginalPrice}</p>

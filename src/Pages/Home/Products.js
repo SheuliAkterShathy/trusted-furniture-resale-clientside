@@ -31,9 +31,11 @@ const Products = () => {
     }
     return (
         <div>
-            {
+           <div>
+           {
              products.map(product=><Product product={product} key={product._id} setProductItem={setProductItem}></Product>)
             }
+           </div>
 
             {  productItem &&
                 <BookingModal

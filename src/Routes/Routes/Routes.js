@@ -7,10 +7,13 @@ import AllSellers from "../../Pages/Dashboard/AllSellers";
 import Dashboard from "../../Pages/Dashboard/Dashboard";
 import MyOrders from "../../Pages/Dashboard/MyOrders";
 import MyProducts from "../../Pages/Dashboard/MyProducts";
+import Payment from "../../Pages/Dashboard/Payment/Payment";
 import Home from "../../Pages/Home/Home";
 import Products from "../../Pages/Home/Products";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Login/Register";
+import Blog from "../../Pages/Shared/Blog";
+import ErrorPage from "../../Pages/Shared/ErrorPage";
 import AdminRoute from "./AdminRoute";
 import BuyerRoute from "./BuyerRoute";
 import PrivateRoute from "./PrivateRoute";
@@ -20,6 +23,7 @@ const router = createBrowserRouter([
 {
     path:'/',
     element: <Main></Main>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
         {
             path: '/',
@@ -34,8 +38,12 @@ const router = createBrowserRouter([
             element: <Register></Register>
         },
         {
+            path: '/blog',
+            element: <Blog></Blog>
+        },
+        {
             path: '/categories/:id',
-            element: <Products></Products>,
+            element: <PrivateRoute><Products></Products></PrivateRoute>,
             loader: ({ params }) =>
           fetch(
             `http://localhost:5000/categories/${params.id}`
@@ -47,7 +55,7 @@ const router = createBrowserRouter([
 {
     path: '/dashboard',
     element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
-    
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
         // {
         //     path: '/dashboard',
@@ -72,7 +80,12 @@ const router = createBrowserRouter([
         {
             path:'/dashboard/allBuyers',
             element: <AdminRoute><AllBuyers></AllBuyers></AdminRoute>
-        }
+        },
+        {
+            path: '/dashboard/payment/:id',
+            element: <Payment></Payment>,
+            loader: ({params}) => fetch(`http://localhost:5000/bookings/${params.id}`)
+        },
        
         
     ]
