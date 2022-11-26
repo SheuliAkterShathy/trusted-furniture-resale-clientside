@@ -1,18 +1,20 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const MyProducts = () => {
+    const navigate=useNavigate()
     const { user } = useContext(AuthContext);
     const { data: myProducts = [], isLoading,refetch } = useQuery({
       queryKey: ["myProducts", user?.email],
       queryFn: async () => {
         const res = await fetch(
           `http://localhost:5000/myProducts?email=${user?.email}`,{
-        //     headers: {
-        //       authorization: `bearer ${localStorage.getItem('icmToken')}`
-        //   }
+            headers: {
+            //   authorization: `bearer ${localStorage.getItem('accessToken')}`
+          }
           }
         );
         const data = await res.json();
@@ -29,9 +31,9 @@ const MyProducts = () => {
             `http://localhost:5000/myProducts/${id}`,
             {
               method: "DELETE",
-            //   headers: {
-            //     authorization: `Bearer ${localStorage.getItem("token")}`,
-            //   },
+              headers: {
+                // authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              },
             }
           )
             .then((res) => res.json())
@@ -45,7 +47,24 @@ const MyProducts = () => {
         }
       };
 
-
+  const handleAdvertise=(id)=>{
+      fetch(`http://localhost:5000/advertise/${id}`,{
+        method:'PUT',
+        headers:{
+            'content-type': 'application/json',
+        }
+      })
+      .then(res =>res.json())
+      .then(data =>{
+        if(data.acknowledged){
+            toast.success('Advertised successfully')
+        }
+        else{
+            toast.error(data.message)
+        }
+      })
+      .catch(err=>toast.error(err.message))
+  }
 
 
     if(isLoading){
@@ -80,7 +99,7 @@ const MyProducts = () => {
                         <th> <button className="btn btn-xs btn-info">unsold</button> </th>
                         <th>
                           {" "}
-                          <button className="btn btn-xs btn-success">Advertise</button>{" "}
+                          <button onClick={()=>handleAdvertise(product._id)} className="btn btn-xs btn-success">Advertise</button>{" "}
                         </th>
                         <th>
                           {" "}

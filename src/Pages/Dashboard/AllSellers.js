@@ -9,9 +9,9 @@ const AllSellers = () => {
         queryFn: async () => {
             try {
                 const res = await fetch('http://localhost:5000/allSellers', {
-                    // headers: {
-                    //     authorization: `bearer ${localStorage.getItem('accessToken')}`
-                    // }
+                    headers: {
+                        // authorization: `bearer ${localStorage.getItem('accessToken')}`
+                    }
                 });
                 const data = await res.json();
                 return data;
@@ -31,9 +31,9 @@ const AllSellers = () => {
             `http://localhost:5000/allSellers/${id}`,
             {
               method: "DELETE",
-            //   headers: {
-            //     authorization: `Bearer ${localStorage.getItem("token")}`,
-            //   },
+              headers: {
+                // authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              },
             }
           )
             .then((res) => res.json())

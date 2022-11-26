@@ -1,14 +1,25 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import useToken from "../../hooks/useToken";
 
 const Register = () => {
 
   const { register, handleSubmit, formState: { errors } } = useForm();
    const { createUser, updateUser,signInWithGoogle } = useContext(AuthContext);
   const [signUpError, setSignUPError] = useState('');
+
+  const [createdUserEmail, setCreatedUserEmail] = useState('')
+  const [token] = useToken(createdUserEmail);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
+  if(token){
+    navigate(from, { replace: true });
+  }
 
   const handleSignUp = data => {
     
@@ -46,6 +57,7 @@ const Register = () => {
     .then(res => res.json())
     .then(data =>{
         console.log(data)
+        setCreatedUserEmail(email)
     })
 }
 
@@ -55,8 +67,9 @@ const handleGoogleSignIn = () => {
       // setLoading(false);
       const user = result.user;
       saveUserInDb(user.displayName,user.email, user.role="buyer")
+      setCreatedUserEmail(user.email)
       console.log(user);
-      //  navigate(from, { replace: true });
+       navigate(from, { replace: true });
     })
     .catch((error) => {
       console.error(error);

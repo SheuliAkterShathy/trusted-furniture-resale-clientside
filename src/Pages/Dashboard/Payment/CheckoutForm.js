@@ -8,7 +8,7 @@ const CheckoutForm = ({booking}) => {
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState("");
-
+    console.log(price)
 
     const stripe = useStripe()
     const elements = useElements();
