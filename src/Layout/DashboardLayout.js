@@ -29,20 +29,20 @@ const DashboardLayout = () => {
             {isBuyer && (
               <>
                 <li>
-                  <NavLink className={({isActive})=> isActive? 'text-orange-400': undefined} to="/dashboard/myOrders">My orders</NavLink>
+                  <NavLink className={({isActive})=> isActive? 'text-amber-500': undefined} to="/dashboard/myOrders">My orders</NavLink>
                 </li>
                 <li>
-                  <NavLink className={({isActive})=> isActive? 'text-orange-400': undefined} to="/dashboard/wishlist">My Wishlist</NavLink>
+                  <NavLink className={({isActive})=> isActive? 'text-amber-500': undefined} to="/dashboard/wishlist">My Wishlist</NavLink>
                 </li>
               </>
             )}
             {isSeller && (
               <>
                 <li>
-                  <NavLink className={({isActive})=> isActive? 'text-orange-400': undefined} to="/dashboard/addProducts">Add products</NavLink>
+                  <NavLink className={({isActive})=> isActive? 'text-amber-500': undefined} to="/dashboard/addProducts">Add products</NavLink>
                 </li>
                 <li>
-                  <NavLink className={({isActive})=> isActive? 'text-orange-400': undefined} to="/dashboard/myProducts">My products</NavLink>
+                  <NavLink className={({isActive})=> isActive? 'text-amber-500': undefined} to="/dashboard/myProducts">My products</NavLink>
                 </li>
               </>
             )}
@@ -51,10 +51,10 @@ const DashboardLayout = () => {
               <>
                 {" "}
                 <li>
-                  <NavLink className={({isActive})=> isActive? 'text-orange-400': undefined} to="/dashboard/allSellers">All Sellers</NavLink>
+                  <NavLink className={({isActive})=> isActive? 'text-amber-500': undefined} to="/dashboard/allSellers">All Sellers</NavLink>
                 </li>{" "}
                 <li>
-                  <NavLink className={({isActive})=> isActive? 'text-orange-400': undefined} to="/dashboard/allBuyers">All Buyers</NavLink>
+                  <NavLink className={({isActive})=> isActive? 'text-amber-400': undefined} to="/dashboard/allBuyers">All Buyers</NavLink>
                 </li>{" "}
               </>
             )}

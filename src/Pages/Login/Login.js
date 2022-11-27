@@ -30,7 +30,7 @@ const Login = () => {
             toast.success("User login successfully")
             console.log(user);
             setLoginUserEmail(data.email);
-            // navigate(from, { replace: true });
+            navigate(from, { replace: true });
         })
         .catch(error => {
             console.log(error.message)
@@ -45,7 +45,7 @@ const handleGoogleSignIn = () => {
       const user = result.user;
       setLoginUserEmail(user.email);
       console.log(user);
-       navigate(from, { replace: true });
+        navigate(from, { replace: true });
     })
     .catch((error) => {
       console.error(error);

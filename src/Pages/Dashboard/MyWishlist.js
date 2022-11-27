@@ -23,7 +23,11 @@ const MyWishlist = () => {
 
    
 useEffect(()=>{
-    axios.get(`http://localhost:5000/wishlists?email=${user?.email}`)
+    axios.get(`http://localhost:5000/wishlists?email=${user?.email}`,{
+        headers: {
+            authorization: `bearer ${localStorage.getItem('accessToken')}`
+        }
+    })
     //  .then(res => res.json())
     .then(data=>{
     setWishlists(data.data)

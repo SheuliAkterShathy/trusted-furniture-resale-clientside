@@ -17,16 +17,16 @@ const Navbar = () => {
 //   }
 
     const menuItems = <React.Fragment>
-        <li><NavLink className={({isActive})=> isActive? 'text-orange-400': undefined} to="/">Home</NavLink></li>
-        <li><NavLink className={({isActive})=> isActive? 'text-orange-400': undefined} to="/blog">Blog</NavLink></li>
+        <li><NavLink className={({isActive})=> isActive? 'text-amber-500': undefined} to="/">Home</NavLink></li>
+        <li><NavLink className={({isActive})=> isActive? 'text-amber-500': undefined} to="/blog">Blog</NavLink></li>
         {/* <li><NavLink to="/dashboard">Dashboard</NavLink></li>
         <li><NavLink to="/login">Login</NavLink></li> */}
         {user?.uid ?
             <>
-                <li><NavLink className={({isActive})=> isActive? 'text-orange-400': undefined} to="/dashboard">Dashboard</NavLink></li>
+                <li><NavLink className={({isActive})=> isActive? 'text-amber-500': undefined} to="/dashboard">Dashboard</NavLink></li>
                 <li><button onClick={handleLogOut}>Sign out</button></li>
             </>
-            : <li><NavLink className={({isActive})=> isActive? 'text-orange-400': undefined} to="/login">Login</NavLink></li>}
+            : <li><NavLink className={({isActive})=> isActive? 'text-amber-500': undefined} to="/login">Login</NavLink></li>}
     </React.Fragment>
 
     return (

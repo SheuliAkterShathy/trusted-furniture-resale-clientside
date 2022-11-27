@@ -18,7 +18,7 @@ const AllBuyers = () => {
           `http://localhost:5000/allBuyers?email=${user?.email}`,
           {
             headers: {
-              // authorization: `bearer ${localStorage.getItem('accessToken')}`
+              authorization: `bearer ${localStorage.getItem('accessToken')}`
             },
           }
         );

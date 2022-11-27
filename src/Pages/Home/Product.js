@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
-import { FaCheck } from "react-icons/fa";
+import { FaCheck, FaHeart } from "react-icons/fa";
 import { AuthContext } from "../../contexts/AuthProvider";
 import Loading from "../Shared/Loading";
 
@@ -99,7 +99,7 @@ console.log(wishlist)
 
         <div className="card-actions justify-end">
           {/* <button htmlFor="booking-modal" className="btn btn-primary">Book Now</button> */}
-          <button onClick={()=>handleWishlist(_id)}>Wishlist</button>
+          <button onClick={()=>handleWishlist(_id)}><span className="text-5xl "><FaHeart className="text-orange-300 hover:text-amber-600"></FaHeart></span></button>
           <label onClick={()=>setProductItem(product)} htmlFor="booking-modal" className="bg-orange-300 p-2 rounded-md cursor-pointer hover:bg-amber-400">Book Now</label>
         </div>
       </div>

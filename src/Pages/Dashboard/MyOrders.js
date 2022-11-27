@@ -15,7 +15,7 @@ const MyOrders = () => {
         queryFn: async () => {
             const res = await fetch(url, {
                 headers: {
-                    // authorization: `bearer ${localStorage.getItem('accessToken')}`
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
             });
             const data = await res.json();

@@ -35,6 +35,7 @@ const Register = () => {
               updateUser(userInfo)
               .then(()=>{
                 saveUserInDb(data.name,data.email,data.role)
+                
               })
               .catch(err => console.log(err));
               })
@@ -58,7 +59,7 @@ const Register = () => {
     .then(data =>{
         console.log(data)
         setCreatedUserEmail(email)
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
     })
 }
 
