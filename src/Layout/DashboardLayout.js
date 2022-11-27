@@ -31,6 +31,9 @@ const DashboardLayout = () => {
                 <li>
                   <Link to="/dashboard/myOrders">My orders</Link>
                 </li>
+                <li>
+                  <Link to="/dashboard/wishlist">My Wishlist</Link>
+                </li>
               </>
             )}
             {isSeller && (

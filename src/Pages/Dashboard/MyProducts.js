@@ -72,7 +72,7 @@ const MyProducts = () => {
     }
     return (
         <div>
-        <div className="overflow-x-auto">
+        <div className="">
           <table className="table w-full">
             <thead>
               <tr>
@@ -99,7 +99,7 @@ const MyProducts = () => {
                         <th> <button className="btn btn-xs btn-info">unsold</button> </th>
                         <th>
                           {" "}
-                          <button onClick={()=>handleAdvertise(product._id)} className="btn btn-xs btn-success">Advertise</button>{" "}
+                          <button onClick={()=>handleAdvertise(product._id)} className={`btn btn-xs  ${product.isAdvertised === true ? ' btn-outline btn-success':'btn-success'}`}> {product.isAdvertised === true ? 'advertise running' : 'Click to Advertise'}</button>{" "}
                         </th>
                         <th>
                           {" "}
@@ -110,7 +110,7 @@ const MyProducts = () => {
                }
               </>
               :
-              <h3 className="text-4xl text-center text-success">No Products are Abailable For Sells now  </h3>
+              <h3 className="text-4xl text-center text-orange">No Products are Abailable For Sells now  </h3>
              }
             </tbody>
           </table>

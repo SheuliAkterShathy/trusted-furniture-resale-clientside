@@ -15,7 +15,7 @@ const CheckoutForm = ({booking}) => {
 
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        fetch("https://localhost:5000/create-payment-intent", {
+         fetch("https://localhost:5000/create-payment-intent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
