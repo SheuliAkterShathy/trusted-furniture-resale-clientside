@@ -4,9 +4,9 @@ import React, { useEffect, useState } from 'react';
 const CheckoutForm = ({booking}) => {
     const {price,email,productName} = booking;
     const [cardError, setCardError] = useState('');
-    const [success, setSuccess] = useState('');
+    // const [success, setSuccess] = useState('');
     const [processing, setProcessing] = useState(false);
-    const [transactionId, setTransactionId] = useState('');
+    // const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState("");
     console.log(price)
 
@@ -18,7 +18,7 @@ const CheckoutForm = ({booking}) => {
          fetch("https://localhost:5000/create-payment-intent", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
+                "content-type": "application/json",
                 // authorization: `bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify({ price }),
@@ -98,7 +98,7 @@ const CheckoutForm = ({booking}) => {
         },
       }}
     />
-    <button className='bg-orange-300 p-2 px-8 mt-8 rounded-md' type="submit" disabled={!stripe || !clientSecret || processing}>
+    <button className='bg-orange-300 p-2 px-8 mt-8 rounded-md' type="submit" disabled={!stripe || !clientSecret }>
       Pay
     </button>
   </form>

@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthProvider";
+import Loading from "../Shared/Loading";
 
 const AllBuyers = () => {
   const { user } = useContext(AuthContext);
@@ -52,7 +53,7 @@ const AllBuyers = () => {
   };
 
   if (isLoading) {
-    return <p>Loading....</p>;
+    return <Loading></Loading>;
   }
 
   return (

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Navbar = () => {
@@ -12,17 +12,21 @@ const Navbar = () => {
             .catch(err => console.log(err));
     }
 
+//     className={({ isActive }) =>
+//     isActive ? "bg-pink-500 px-2 py-1 rounded-md" : undefined
+//   }
+
     const menuItems = <React.Fragment>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/blog">Blog</Link></li>
-        {/* <li><Link to="/dashboard">Dashboard</Link></li>
-        <li><Link to="/login">Login</Link></li> */}
+        <li><NavLink className={({isActive})=> isActive? 'text-orange-400': undefined} to="/">Home</NavLink></li>
+        <li><NavLink className={({isActive})=> isActive? 'text-orange-400': undefined} to="/blog">Blog</NavLink></li>
+        {/* <li><NavLink to="/dashboard">Dashboard</NavLink></li>
+        <li><NavLink to="/login">Login</NavLink></li> */}
         {user?.uid ?
             <>
-                <li><Link to="/dashboard">Dashboard</Link></li>
+                <li><NavLink className={({isActive})=> isActive? 'text-orange-400': undefined} to="/dashboard">Dashboard</NavLink></li>
                 <li><button onClick={handleLogOut}>Sign out</button></li>
             </>
-            : <li><Link to="/login">Login</Link></li>}
+            : <li><NavLink className={({isActive})=> isActive? 'text-orange-400': undefined} to="/login">Login</NavLink></li>}
     </React.Fragment>
 
     return (
@@ -39,7 +43,7 @@ const Navbar = () => {
             </div>
            
           
-            <Link to="/" className="btn btn-ghost normal-case text-xl text-amber-500">Trusted Furniture</Link>
+            <NavLink to="/" className="btn btn-ghost normal-case text-xl text-amber-500">Trusted Furniture</NavLink>
           
         </div>
         <div className="navbar-center hidden lg:flex">

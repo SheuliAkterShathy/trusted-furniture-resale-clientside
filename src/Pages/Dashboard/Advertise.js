@@ -1,9 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import Loading from '../Shared/Loading';
 
 const Advertise = () => {
 
-    const {data: advertiseProduct = [], refetch} = useQuery({
+    const {data: advertiseProduct = [], isLoading} = useQuery({
         queryKey: ['advertiseProduct'],
         queryFn: async() =>{
             const res = await fetch('http://localhost:5000/advertise');
@@ -13,7 +14,9 @@ const Advertise = () => {
         }
     });
 
-
+if(isLoading){
+    return <Loading></Loading>
+}
     return (
         <div className='grid gap-6 md:grid-cols-3 my-24'>
             <>{advertiseProduct?.length && 

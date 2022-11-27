@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { FaCheck } from "react-icons/fa";
 import { AuthContext } from "../../contexts/AuthProvider";
+import Loading from "../Shared/Loading";
 
 const Product = ({product,setProductItem}) => {
   const {user} = useContext(AuthContext)
@@ -56,7 +57,7 @@ console.log(wishlist)
 
 
     if(isLoading){
-       return <p>Loading....</p>
+       return <Loading></Loading>
     }
   return (
     <div className="card lg:card-side bg-base-100 shadow-xl  m-10">

@@ -70,7 +70,7 @@ const Home = () => {
               <div className="flex space-x-4">
                 <div>
                   <img
-                    src="https://source.unsplash.com/100x100/?portrait"
+                    src="https://img.freepik.com/free-photo/mand-holding-cup_1258-340.jpg?w=1380&t=st=1669549459~exp=1669550059~hmac=0ff73a1e2abc0058a3aecd51428366259e421f0303b8f0bb0d43552c7c4ea464"
                     alt=""
                     className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
                   />

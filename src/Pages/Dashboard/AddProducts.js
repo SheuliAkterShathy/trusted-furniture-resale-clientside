@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import Loading from "../Shared/Loading";
 
 const AddProducts = () => {
   const {
@@ -16,7 +17,7 @@ const AddProducts = () => {
    
 
   const navigate = useNavigate()
-  const { data: categories = [] } = useQuery({
+  const { data: categories = [],isLoading } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
       const res = await fetch("http://localhost:5000/categories");
@@ -76,12 +77,16 @@ const AddProducts = () => {
         }
     })
 }
+
+if(isLoading){
+ return <Loading></Loading>
+}
   return (
     <div>
       <h2 className="text-4xl">Add Products</h2>
 
       <div className=" p-7">
-        <form onSubmit={handleSubmit(handleAddProduct)} className='lg:grid grid-cols-2'>
+        <form onSubmit={handleSubmit(handleAddProduct)} className=''>
           <div className="form-control w-full">
             <label className="label">
               {" "}
@@ -249,7 +254,7 @@ const AddProducts = () => {
 
 
           <input
-            className="btn btn-accent w-full mt-4 max-w-xs"
+            className="bg-orange-300 hover:bg-orange-200 p-3 rounded-md w-full mt-4 max-w-xs"
             value="Add Product"
             type="submit"
           />

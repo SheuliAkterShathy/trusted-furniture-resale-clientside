@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import Loading from '../Shared/Loading';
 
 const MyProducts = () => {
     const navigate=useNavigate()
@@ -68,7 +69,7 @@ const MyProducts = () => {
 
 
     if(isLoading){
-      return <p>Loadding...</p>
+      return <Loading></Loading>
     }
     return (
         <div>

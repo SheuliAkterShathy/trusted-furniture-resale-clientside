@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthProvider";
 import useAdmin from "../hooks/useAdmin";
 import useBuyer from "../hooks/useBuyer";
@@ -29,20 +29,20 @@ const DashboardLayout = () => {
             {isBuyer && (
               <>
                 <li>
-                  <Link to="/dashboard/myOrders">My orders</Link>
+                  <NavLink className={({isActive})=> isActive? 'text-orange-400': undefined} to="/dashboard/myOrders">My orders</NavLink>
                 </li>
                 <li>
-                  <Link to="/dashboard/wishlist">My Wishlist</Link>
+                  <NavLink className={({isActive})=> isActive? 'text-orange-400': undefined} to="/dashboard/wishlist">My Wishlist</NavLink>
                 </li>
               </>
             )}
             {isSeller && (
               <>
                 <li>
-                  <Link to="/dashboard/addProducts">Add products</Link>
+                  <NavLink className={({isActive})=> isActive? 'text-orange-400': undefined} to="/dashboard/addProducts">Add products</NavLink>
                 </li>
                 <li>
-                  <Link to="/dashboard/myProducts">My products</Link>
+                  <NavLink className={({isActive})=> isActive? 'text-orange-400': undefined} to="/dashboard/myProducts">My products</NavLink>
                 </li>
               </>
             )}
@@ -51,10 +51,10 @@ const DashboardLayout = () => {
               <>
                 {" "}
                 <li>
-                  <Link to="/dashboard/allSellers">All Sellers</Link>
+                  <NavLink className={({isActive})=> isActive? 'text-orange-400': undefined} to="/dashboard/allSellers">All Sellers</NavLink>
                 </li>{" "}
                 <li>
-                  <Link to="/dashboard/allBuyers">All Buyers</Link>
+                  <NavLink className={({isActive})=> isActive? 'text-orange-400': undefined} to="/dashboard/allBuyers">All Buyers</NavLink>
                 </li>{" "}
               </>
             )}
