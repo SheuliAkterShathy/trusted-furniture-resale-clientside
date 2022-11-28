@@ -12,7 +12,7 @@
   - Buyer will see his orders,and wishlist
   - Seller will see his produsts,and seller can add product.
 
-  - Disclaimer: sometimes after login and register it show 404 error,pls again go home page.Then it will show exact result.
+  ### Disclaimer: Sometimes after login and register it show 404 error,pls again go home page.Then it will show exact result.I have used useNavigation(),but sometimes it doesn't navigate  but not every time.
 
 ### Admin email and password
 adminEmail: <tarikul25@gmail.com>

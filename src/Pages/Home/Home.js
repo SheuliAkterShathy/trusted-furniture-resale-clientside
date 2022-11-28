@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <div>
       <section className="">
-        <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
+        <div className="container flex flex-col justify-center p-2 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
           <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
             <h1 className="font-semibold leading-none text-5xl">
               <span>Welcome To</span>
@@ -49,7 +49,7 @@ const Home = () => {
 
       {/* categories section */}
       <section>
-        <div className="grid lg:grid-cols-3 gap-6 my-12 mx-12 m-auto">
+        <div className="grid lg:grid-cols-3 gap-6 my-12 mx-8 m-auto">
           {categories.map((category) => (
             <Category category={category} key={category._id}></Category>
           ))}
@@ -57,12 +57,12 @@ const Home = () => {
       </section>
 
       {/* Advertise */}
-      <section className="mx-12 m-auto">
+      <section className="mx-8 m-auto">
         <Advertise></Advertise>
       </section>
 
       {/* Customer Review */}
-      <div className="mx-12 m-auto">
+      <div className="mx-8 m-auto">
         <h2 className="text-center text-3xl font-bold">Customer Review</h2>
         <div className="grid md:grid-cols-3 gap-6 my-6">
           <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700   shadow-md">

@@ -33,6 +33,7 @@ const Navbar = () => {
           Blog
         </NavLink>
       </li>
+      
 
       {user?.uid ? (
         <>
@@ -66,8 +67,8 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100 flex justify-between">
-      <div className="navbar-start md:mx-10">
+    <div className="navbar bg-base-100 flex justify-between m-auto">
+      <div className="navbar-start md:mx-">
         <img
           className="h-16"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLmQAqCJqHfEfPowO76cloozvOSDOo8LIEmw&usqp=CAU"
