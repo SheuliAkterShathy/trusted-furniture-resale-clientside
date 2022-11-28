@@ -18,7 +18,7 @@ const AllBuyers = () => {
           `https://trusted-furniture-server.vercel.app/allBuyers?email=${user?.email}`,
           {
             headers: {
-              authorization: `bearer ${localStorage.getItem('accessToken')}`
+              authorization: `bearer ${localStorage.getItem("accessToken")}`,
             },
           }
         );

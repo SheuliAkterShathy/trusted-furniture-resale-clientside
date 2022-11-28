@@ -8,20 +8,7 @@ const MyWishlist = () => {
     const {user} = useContext(AuthContext)
     const [wishlists, setWishlists] = useState([]);
 
-    // const {data: wishlists=[], isLoading} = useQuery({
-    //     queryKey: ['wishlists'],
-    //     queryFn: async() =>{
-    //         const res = await fetch(`https://trusted-furniture-server.vercel.app/wishlists?email=${user?.email}`);
-    //         const data = await res.json();
-        
-    //         return data;
-    //     }
-    // });
-    
-    // if(isLoading){
-    //     return <p>Loading....</p>
-    // }
-
+   
    
 useEffect(()=>{
     axios.get(`https://trusted-furniture-server.vercel.app/wishlists?email=${user?.email}`,{

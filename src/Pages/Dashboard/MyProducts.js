@@ -98,7 +98,7 @@ const MyProducts = () => {
                         <th><img className='w-16 h-12' src={product.image} alt="" /></th>
                         <th> {product.name} </th>
                         <th> {product.resalePrice} </th>
-                        <th> <button className="btn btn-xs btn-info">unsold</button> </th>
+                        <th> <button className=" btn-xs ">unsold</button> </th>
                         <th>
                           {" "}
                           <button onClick={()=>handleAdvertise(product._id)} className={`btn btn-xs  ${product.isAdvertised === true ? ' btn-outline btn-success':'btn-success'}`}> {product.isAdvertised === true ? 'advertise running' : 'Click to Advertise'}</button>{" "}

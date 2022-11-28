@@ -2,7 +2,7 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
 
 const CheckoutForm = ({booking}) => {
-    const {price,email,productName,_id} = booking;
+    const {price,email,_id} = booking;
     const [cardError, setCardError] = useState('');
      const [success, setSuccess] = useState('');
     const [processing, setProcessing] = useState(false);
@@ -78,7 +78,7 @@ const CheckoutForm = ({booking}) => {
             price,
             transactionId: paymentIntent.id,
             email,
-            bookingId: _id
+            bookingId:_id
         }
         fetch('https://localhost:5000/payments', {
           method: 'POST',

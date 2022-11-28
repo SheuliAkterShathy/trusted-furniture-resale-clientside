@@ -64,19 +64,19 @@ const Register = () => {
         console.log(data)
         setCreatedUserEmail(email)
         setLoading(false)
-        // navigate(from, { replace: true });
+        
     })
 }
 
 const handleGoogleSignIn = () => {
   signInWithGoogle()
     .then((result) => {
-      // setLoading(false);
+     
       const user = result.user;
       saveUserInDb(user.displayName,user.email, user.role="buyer")
       setCreatedUserEmail(user.email)
       console.log(user);
-      //  navigate(from, { replace: true });
+     
     })
     .catch((error) => {
       console.error(error);

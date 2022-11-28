@@ -78,9 +78,9 @@ console.log(wishlist)
         </div>
        <div className="lg:fle gap-8">
        
-       <div>
-       <p>Orginal Price:{orginalPrice}</p>
-        <p>Resale Price:{resalePrice}</p>
+       <div className="">
+       <p>Orginal Price: <strong>{orginalPrice}</strong></p>
+        <p>Resale Price: <strong>{resalePrice}</strong></p>
        </div>
         <div>
         <p>Posted Time:{postedTime}</p>

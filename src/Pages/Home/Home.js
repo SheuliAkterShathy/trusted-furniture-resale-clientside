@@ -14,10 +14,10 @@ const Home = () => {
   });
   return (
     <div>
-      <section className="dark:dark:dark:bg-gray-800 dark:dark:dark:text-gray-100">
+      <section className="">
         <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
           <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
-            <h1 className="font-semibold leading-none sm:text-5xl">
+            <h1 className="font-semibold leading-none text-5xl">
               <span>Welcome To</span>
               <br />
               <strong className="">Trusted Furniture</strong>
@@ -31,7 +31,7 @@ const Home = () => {
               <a
                 rel="noopener noreferrer"
                 href="#"
-                className="px-8 py-3 text-lg font-semibold rounded dark:dark:dark:bg-violet-400 dark:dark:dark:text-gray-900 border-2 border-amber-500"
+                className="px-8 py-3 text-lg font-semibold rounded  border-2 border-amber-500"
               >
                 Bye Now
               </a>
@@ -49,7 +49,7 @@ const Home = () => {
 
       {/* categories section */}
       <section>
-        <div className="grid lg:grid-cols-3 gap-6 my-12">
+        <div className="grid lg:grid-cols-3 gap-6 my-12 mx-12 m-auto">
           {categories.map((category) => (
             <Category category={category} key={category._id}></Category>
           ))}
@@ -57,30 +57,30 @@ const Home = () => {
       </section>
 
       {/* Advertise */}
-      <section>
+      <section className="mx-12 m-auto">
         <Advertise></Advertise>
       </section>
 
       {/* Customer Review */}
-      <div>
+      <div className="mx-12 m-auto">
         <h2 className="text-center text-3xl font-bold">Customer Review</h2>
         <div className="grid md:grid-cols-3 gap-6 my-6">
-          <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100 shadow-md">
+          <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700   shadow-md">
             <div className="flex justify-between p-4">
               <div className="flex space-x-4">
                 <div>
                   <img
                     src="https://img.freepik.com/free-photo/mand-holding-cup_1258-340.jpg?w=1380&t=st=1669549459~exp=1669550059~hmac=0ff73a1e2abc0058a3aecd51428366259e421f0303b8f0bb0d43552c7c4ea464"
                     alt=""
-                    className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
+                    className="object-cover w-12 h-12 rounded-full"
                   />
                 </div>
                 <div>
                   <h4 className="font-bold">Leroy Jenkins</h4>
-                  <span className="text-xs dark:text-gray-400">1 days ago</span>
+                  <span className="text-xs">1 days ago</span>
                 </div>
               </div>
-              <div className="flex items-center space-x-2 dark:text-yellow-500">
+              <div className="flex items-center space-x-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 512 512"
@@ -91,7 +91,7 @@ const Home = () => {
                 <span className="text-xl font-bold">5</span>
               </div>
             </div>
-            <div className="p-4 space-y-2 text-sm dark:text-gray-400">
+            <div className="p-4 space-y-2 text-sm ">
               <p>
                 My favourite piece of furniture from Trusted is my Sofa.
                 Definitely recommending Trusted to my friends and family. Their
@@ -103,22 +103,22 @@ const Home = () => {
               </p>
             </div>
           </div>
-          <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md shadow-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
+          <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md shadow-md divide-gray-700">
             <div className="flex justify-between p-4">
               <div className="flex space-x-4">
                 <div>
                   <img
                     src="https://img.freepik.com/premium-photo/young-man-with-beard-isolated-keeping-arms-crossed-frontal-position_1368-65212.jpg?size=626&ext=jpg&ga=GA1.2.258402809.1666072521&semt=sph"
                     alt=""
-                    className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
+                    className="object-cover w-12 h-12 rounded-full"
                   />
                 </div>
                 <div>
                   <h4 className="font-bold">Md: Tonmoy </h4>
-                  <span className="text-xs dark:text-gray-400">2 days ago</span>
+                  <span className="text-xs">2 days ago</span>
                 </div>
               </div>
-              <div className="flex items-center space-x-2 dark:text-yellow-500">
+              <div className="flex items-center space-x-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 512 512"
@@ -129,7 +129,7 @@ const Home = () => {
                 <span className="text-xl font-bold">5</span>
               </div>
             </div>
-            <div className="p-4 space-y-2 text-sm dark:text-gray-400">
+            <div className="p-4 space-y-2 text-sm ">
               <p>
                 We purchased so many products from Trusted and we would
                 recommend Trusted Furniture to everyone who needs quality and
@@ -140,22 +140,22 @@ const Home = () => {
               </p>
             </div>
           </div>
-          <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md shadow-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
+          <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md shadow-md divide-gray-700">
             <div className="flex justify-between p-4">
               <div className="flex space-x-4">
                 <div>
                   <img
                     src="https://img.freepik.com/free-photo/confident-young-businessman-suit-standing-with-arms-folded_171337-18599.jpg?size=626&ext=jpg&ga=GA1.2.258402809.1666072521&semt=sph"
                     alt=""
-                    className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
+                    className="object-cover w-12 h-12 rounded-full"
                   />
                 </div>
                 <div>
                   <h4 className="font-bold">Labib Akter</h4>
-                  <span className="text-xs dark:text-gray-400">1 days ago</span>
+                  <span className="text-xs">1 days ago</span>
                 </div>
               </div>
-              <div className="flex items-center space-x-2 dark:text-yellow-500">
+              <div className="flex items-center space-x-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 512 512"
@@ -166,7 +166,7 @@ const Home = () => {
                 <span className="text-xl font-bold">4.5</span>
               </div>
             </div>
-            <div className="p-4 space-y-2 text-sm dark:text-gray-400">
+            <div className="p-4 space-y-2 text-sm">
               <p>
                 Sceptical about their doors frames and shutters. However quality
                 of product and installation was satisfactory.I will buy only from Trusted Furniture in the

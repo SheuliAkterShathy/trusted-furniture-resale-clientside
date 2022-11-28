@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import moment from "moment/moment";
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -29,6 +30,7 @@ const AddProducts = () => {
 
   const handleAddProduct = data=> {
     console.log(data)
+    const postedTime = moment().format('lll');
     const image = data.image[0];
     const formData = new FormData();
     formData.append('image', image);
@@ -48,7 +50,7 @@ const AddProducts = () => {
                 name: data.productName, 
                 orginalPrice: data.orginalPrice,
                 resalePrice: data.resalePrice,
-                postedTime: data.postedTime,
+                postedTime: postedTime,
                 condition: data.condition,
                 categoryName: data.categoryName,
                 used: data.use,
@@ -83,8 +85,8 @@ if(isLoading){
  return <Loading></Loading>
 }
   return (
-    <div>
-      <h2 className="text-4xl">Add Products</h2>
+    <div className="lg:ml-20">
+      <h2 className="text-4xl ml-8 underline">Add Products</h2>
 
       <div className=" p-7">
         <form onSubmit={handleSubmit(handleAddProduct)} className=''>
@@ -112,7 +114,7 @@ if(isLoading){
             <input
               type="text"
               {...register("resalePrice", {
-                required: true,
+                required: "Resale Price is Required",
               })}
               className="input input-bordered w-full max-w-xs"
             />
@@ -128,7 +130,7 @@ if(isLoading){
             <input
               type="text"
               {...register("orginalPrice", {
-                required: true,
+                required: "OrginalPrice is Required",
               })}
               className="input input-bordered w-full max-w-xs"
             />
@@ -144,7 +146,7 @@ if(isLoading){
             <input
               type="text"
               {...register("use", {
-                required: true,
+                required: "Used Time is Required",
               })}
               className="input input-bordered w-full max-w-xs"
             />
@@ -160,7 +162,7 @@ if(isLoading){
             <input
               type="text"
               {...register("sellerName", {
-                required: true,
+                required:"SellerName is Required",
               })}
               className="input input-bordered w-full max-w-xs"
             />
@@ -168,22 +170,7 @@ if(isLoading){
               <p className="text-red-500">{errors.sellerName.message}</p>
             )}
           </div>
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              {" "}
-              <span className="label-text">Posted Time</span>
-            </label>
-            <input
-              type="text"
-              {...register("postedTime", {
-                required: true,
-              })}
-              className="input input-bordered w-full max-w-xs"
-            />
-             {errors.postedTime && (
-              <p className="text-red-500">{errors.postedTime.message}</p>
-            )}
-          </div>
+         
           <div className="form-control w-full max-w-xs">
             <label className="label">
               {" "}
@@ -192,7 +179,7 @@ if(isLoading){
             <input
               type="text"
               {...register("phone", {
-                required: true,
+                required: "Phone Number is Required",
               })}
               className="input input-bordered w-full max-w-xs"
             />
@@ -208,7 +195,7 @@ if(isLoading){
             <input
               type="text"
               {...register("location", {
-                required: true,
+                required: "Location is Required",
               })}
               className="input input-bordered w-full max-w-xs"
             />
@@ -265,7 +252,7 @@ if(isLoading){
             <textarea
               type="text"
               {...register("details", {
-                required: true,
+                required: "Products details are Required",
               })}
               className="input input-bordered w-full max-w-xs"
             />
