@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
 // const axios = require('axios');
 import axios from "axios";
+import { Link } from 'react-router-dom';
 const MyWishlist = () => {
     const {user} = useContext(AuthContext)
     const [wishlists, setWishlists] = useState([]);
@@ -10,7 +11,7 @@ const MyWishlist = () => {
     // const {data: wishlists=[], isLoading} = useQuery({
     //     queryKey: ['wishlists'],
     //     queryFn: async() =>{
-    //         const res = await fetch(`http://localhost:5000/wishlists?email=${user?.email}`);
+    //         const res = await fetch(`https://trusted-furniture-server.vercel.app/wishlists?email=${user?.email}`);
     //         const data = await res.json();
         
     //         return data;
@@ -23,7 +24,7 @@ const MyWishlist = () => {
 
    
 useEffect(()=>{
-    axios.get(`http://localhost:5000/wishlists?email=${user?.email}`,{
+    axios.get(`https://trusted-furniture-server.vercel.app/wishlists?email=${user?.email}`,{
         headers: {
             authorization: `bearer ${localStorage.getItem('accessToken')}`
         }
@@ -61,7 +62,7 @@ useEffect(()=>{
                                     <td>{wishlist?.productName}</td>
                                     <td>{wishlist?.resalePrice}</td>
                                     
-                                   <td><button className='btn-xs bg-orange-300 rounded-md'>Purchase</button></td>
+                                   <td><button className='btn-xs bg-orange-300 hover:bg-orange-200 rounded-md'><Link to={`/dashboard/payment/${wishlist._id}`}>Purchase</Link></button></td>
                                 </tr>)
                             }
                         </tbody>

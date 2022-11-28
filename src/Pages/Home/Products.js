@@ -11,7 +11,7 @@ const Products = () => {
     const [productItem, setProductItem] = useState(null);
     // useEffect(() => {
     //     fetch(
-    //       `http://localhost:5000/products?categoryName=${categoryName}`
+    //       `https://trusted-furniture-server.vercel.app/products?categoryName=${categoryName}`
     //     )
     //       .then((res) => res.json())
     //       .then((data) => setProducts(data));
@@ -21,7 +21,7 @@ const Products = () => {
     const { data: products = [], refetch, isLoading } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/products?categoryName=${categoryName}`);
+            const res = await fetch(`https://trusted-furniture-server.vercel.app/products?categoryName=${categoryName}`);
             const data = await res.json();
             return data
         }

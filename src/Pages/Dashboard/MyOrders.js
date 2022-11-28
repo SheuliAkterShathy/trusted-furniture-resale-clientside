@@ -8,7 +8,7 @@ const MyOrders = () => {
 
     const { user } = useContext(AuthContext);
 
-    const url = `http://localhost:5000/bookings?email=${user?.email}`;
+    const url = `https://trusted-furniture-server.vercel.app/bookings?email=${user?.email}`;
 
     const { data: bookings = [], isLoading } = useQuery({
         queryKey: ['bookings', user?.email],
@@ -43,7 +43,7 @@ const MyOrders = () => {
                 <tbody>
                     {
                         bookings &&
-                        bookings?.map((booking, i) => <tr key={booking._id}>
+                        bookings?.map((booking, i) => <tr key={booking?._id}>
                             <th>{i + 1}</th>
                             <td><img className='w-16' src={booking?.image} alt="" /></td>
                             <td>{booking?.productName}</td>
@@ -53,10 +53,10 @@ const MyOrders = () => {
                                 {
                                     booking.price && !booking.paid && <Link
 
-                                        to={`/dashboard/payment/${booking._id}`}
+                                    to={`/dashboard/payment/${booking._id}`}
                                     >
                                         <button
-                                            className='btn btn-info btn-xs'
+                                            className='bg-orange-300 rounded-md hover:bg-orange-200 btn-xs'
                                         >Pay</button>
                                     </Link>
                                 }

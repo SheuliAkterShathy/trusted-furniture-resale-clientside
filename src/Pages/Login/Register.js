@@ -4,13 +4,15 @@ import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import useToken from "../../hooks/useToken";
+import Loading from "../Shared/Loading";
 
 const Register = () => {
 
   const { register, handleSubmit, formState: { errors } } = useForm();
    const { createUser, updateUser,signInWithGoogle } = useContext(AuthContext);
   const [signUpError, setSignUPError] = useState('');
-
+  const [loading, setLoading] = useState(false);
+   
   const [createdUserEmail, setCreatedUserEmail] = useState('')
   const [token] = useToken(createdUserEmail);
   const navigate = useNavigate();
@@ -19,10 +21,11 @@ const Register = () => {
 
   if(token){
     navigate(from, { replace: true });
+    setLoading(false)
   }
 
   const handleSignUp = data => {
-    
+       setLoading(true)
       createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
@@ -35,20 +38,21 @@ const Register = () => {
               updateUser(userInfo)
               .then(()=>{
                 saveUserInDb(data.name,data.email,data.role)
-                
+              
               })
               .catch(err => console.log(err));
               })
               .catch(error=>{
                 console.log(error)
                 setSignUPError(error.message)
+                setLoading(false)
               })
   }
 
 
   const saveUserInDb = (name, email,role) =>{
     const user ={name, email,role};
-    fetch('http://localhost:5000/users', {
+    fetch('https://trusted-furniture-server.vercel.app/users', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -59,6 +63,7 @@ const Register = () => {
     .then(data =>{
         console.log(data)
         setCreatedUserEmail(email)
+        setLoading(false)
         // navigate(from, { replace: true });
     })
 }
@@ -71,14 +76,19 @@ const handleGoogleSignIn = () => {
       saveUserInDb(user.displayName,user.email, user.role="buyer")
       setCreatedUserEmail(user.email)
       console.log(user);
-       navigate(from, { replace: true });
+      //  navigate(from, { replace: true });
     })
     .catch((error) => {
       console.error(error);
     });
 };
+
+if(loading){
+  return <Loading></Loading>
+}
   return (
-    <div className="md:flex my-12 justify-around items-center">
+    <>
+         <div className="md:flex my-12 justify-around items-center">
       <div>
         <img
           src="https://img.freepik.com/free-vector/cartoon-character-filling-form-survey-checklist-man-writing-test-signing-business-medical-document-flat-illustration_74855-20483.jpg?size=626&ext=jpg&ga=GA1.2.258402809.1666072521&semt=sph"
@@ -210,6 +220,8 @@ const handleGoogleSignIn = () => {
         </p>
       </div>
     </div>
+
+    </>
   );
 };
 

@@ -20,7 +20,7 @@ const AddProducts = () => {
   const { data: categories = [],isLoading } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/categories");
+      const res = await fetch("https://trusted-furniture-server.vercel.app/categories");
       const data = await res.json();
       return data;
     },
@@ -53,13 +53,14 @@ const AddProducts = () => {
                 categoryName: data.categoryName,
                 used: data.use,
                 details: data.details,
+                sellerName: data.sellerName,
                 phone:data.phone,
                 location:data.location,
                 image: imgData.data.url,
                 email:user.email
             }
             // save product information to the database
-            fetch('http://localhost:5000/products', {
+            fetch('https://trusted-furniture-server.vercel.app/products', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json', 
@@ -115,9 +116,9 @@ if(isLoading){
               })}
               className="input input-bordered w-full max-w-xs"
             />
-            {/* {errors.email && (
-              <p className="text-red-500">{errors.email.message}</p>
-            )} */}
+            {errors.resalePrice && (
+              <p className="text-red-500">{errors.resalePrice.message}</p>
+            )}
           </div>
           <div className="form-control w-full max-w-xs">
             <label className="label">
@@ -131,6 +132,9 @@ if(isLoading){
               })}
               className="input input-bordered w-full max-w-xs"
             />
+             {errors.orginalPrice && (
+              <p className="text-red-500">{errors.orginalPrice.message}</p>
+            )}
           </div>
           <div className="form-control w-full max-w-xs">
             <label className="label">
@@ -144,6 +148,9 @@ if(isLoading){
               })}
               className="input input-bordered w-full max-w-xs"
             />
+             {errors.use && (
+              <p className="text-red-500">{errors.use.message}</p>
+            )}
           </div>
           <div className="form-control w-full max-w-xs">
             <label className="label">
@@ -157,6 +164,9 @@ if(isLoading){
               })}
               className="input input-bordered w-full max-w-xs"
             />
+             {errors.sellerName && (
+              <p className="text-red-500">{errors.sellerName.message}</p>
+            )}
           </div>
           <div className="form-control w-full max-w-xs">
             <label className="label">
@@ -170,6 +180,9 @@ if(isLoading){
               })}
               className="input input-bordered w-full max-w-xs"
             />
+             {errors.postedTime && (
+              <p className="text-red-500">{errors.postedTime.message}</p>
+            )}
           </div>
           <div className="form-control w-full max-w-xs">
             <label className="label">
@@ -183,6 +196,9 @@ if(isLoading){
               })}
               className="input input-bordered w-full max-w-xs"
             />
+             {errors.phone && (
+              <p className="text-red-500">{errors.phone.message}</p>
+            )}
           </div>
           <div className="form-control w-full max-w-xs">
             <label className="label">
@@ -196,6 +212,9 @@ if(isLoading){
               })}
               className="input input-bordered w-full max-w-xs"
             />
+             {errors.location && (
+              <p className="text-red-500">{errors.location.message}</p>
+            )}
           </div>
 
           <div className="space-y-1 text-sm">
@@ -250,6 +269,9 @@ if(isLoading){
               })}
               className="input input-bordered w-full max-w-xs"
             />
+             {errors.details && (
+              <p className="text-red-500">{errors.details.message}</p>
+            )}
           </div>
 
 

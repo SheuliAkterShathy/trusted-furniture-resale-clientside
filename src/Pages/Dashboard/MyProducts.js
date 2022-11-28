@@ -12,7 +12,7 @@ const MyProducts = () => {
       queryKey: ["myProducts", user?.email],
       queryFn: async () => {
         const res = await fetch(
-          `http://localhost:5000/myProducts?email=${user?.email}`,{
+          `https://trusted-furniture-server.vercel.app/myProducts?email=${user?.email}`,{
             headers: {
               authorization: `bearer ${localStorage.getItem('accessToken')}`
           }
@@ -29,7 +29,7 @@ const MyProducts = () => {
         );
         if (proceed) {
           fetch(
-            `http://localhost:5000/myProducts/${id}`,
+            `https://trusted-furniture-server.vercel.app/myProducts/${id}`,
             {
               method: "DELETE",
               headers: {
@@ -49,7 +49,7 @@ const MyProducts = () => {
       };
 
   const handleAdvertise=(id)=>{
-      fetch(`http://localhost:5000/advertise/${id}`,{
+      fetch(`https://trusted-furniture-server.vercel.app/advertise/${id}`,{
         method:'PUT',
         headers:{
             'content-type': 'application/json',
@@ -59,6 +59,7 @@ const MyProducts = () => {
       .then(data =>{
         if(data.acknowledged){
             toast.success('Advertised successfully')
+            refetch()
         }
         else{
             toast.error(data.message)

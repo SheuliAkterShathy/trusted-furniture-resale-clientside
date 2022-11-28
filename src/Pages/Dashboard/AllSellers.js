@@ -15,7 +15,7 @@ const AllSellers = () => {
     queryFn: async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/allSellers?email=${user?.email}`,
+          `https://trusted-furniture-server.vercel.app/allSellers?email=${user?.email}`,
           {
             headers: {
               authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -35,7 +35,7 @@ const AllSellers = () => {
       "Are you sure, you want to cancel this order"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/allSellers/${id}`, {
+      fetch(`https://trusted-furniture-server.vercel.app/allSellers/${id}`, {
         method: "DELETE",
         headers: {
           // authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -52,24 +52,18 @@ const AllSellers = () => {
     }
   };
 
-  const handleVerify=(id)=>{
-    fetch(`http://localhost:5000/verify/${id}`,{
-      method:'PUT',
-      headers:{
-          'content-type': 'application/json',
-      }
-    })
-    .then(res =>res.json())
-    .then(data =>{
-      if(data.acknowledged){
-          toast.success('Verified successfully')
-          refetch()
-      }
-      else{
-          toast.error(data.message)
-      }
-    })
-    .catch(err=>toast.error(err.message))
+  const handleVerify=(id)=>{ fetch(`https://trusted-furniture-server.vercel.app/users?userid=${id}&email=${user?.email}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `bearer ${localStorage.getItem("accessToken")}`,
+    },
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log(data)
+    refetch()
+  })
   }
 
 
@@ -98,7 +92,7 @@ const AllSellers = () => {
                 <td>{seller.name}</td>
                 <td>{seller.email}</td>
                 <td>
-                  <button onClick={()=>handleVerify(seller._id)}>{seller.isVerified === true ? 'Verified':'No verify'}</button>
+                  <button onClick={()=>handleVerify(seller._id)}>{seller.verified === true ? 'Verified':'No verify'}</button>
                 </td>
                 <td>
                   <button

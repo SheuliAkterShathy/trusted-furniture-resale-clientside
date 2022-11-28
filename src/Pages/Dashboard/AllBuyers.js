@@ -15,7 +15,7 @@ const AllBuyers = () => {
     queryFn: async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/allBuyers?email=${user?.email}`,
+          `https://trusted-furniture-server.vercel.app/allBuyers?email=${user?.email}`,
           {
             headers: {
               authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -35,7 +35,7 @@ const AllBuyers = () => {
       "Are you sure, you want to cancel this order"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/allBuyers/${id}`, {
+      fetch(`https://trusted-furniture-server.vercel.app/allBuyers/${id}`, {
         method: "DELETE",
         headers: {
           // authorization: `Bearer ${localStorage.getItem("accessToken")}`,

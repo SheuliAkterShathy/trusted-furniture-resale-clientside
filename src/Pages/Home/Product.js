@@ -6,19 +6,18 @@ import { AuthContext } from "../../contexts/AuthProvider";
 import Loading from "../Shared/Loading";
 
 const Product = ({product,setProductItem}) => {
-  const {user} = useContext(AuthContext)
-  const {name,location,resalePrice,orginalPrice,postedTime,condition,used,image, email,phone,details,_id} = product;
+  // const {user} = useContext(AuthContext)
+  const {name,location,resalePrice,orginalPrice,postedTime,condition,used,image, email,sellerName,phone,details,_id} = product;
    
-
-  const {data: userN=[], isLoading} = useQuery({
-    queryKey: ['userN'],
-    queryFn: async() =>{
-        const res = await fetch(`http://localhost:5000/user?email=${email}`);
-        const data = await res.json();
-    
-        return data;
+  const {data : user, isLoading} = useQuery({
+    queryKey : ['user', name],
+    queryFn : async ()=>{
+      const res = await fetch(`https://trusted-furniture-server.vercel.app/user?email=${email}`)
+      const data = await res.json()
+      console.log(data)
+      return data
     }
-});
+  })
 
    const handleWishlist=(id)=>{
 
@@ -30,7 +29,7 @@ const Product = ({product,setProductItem}) => {
     }
 console.log(wishlist)
 
-    fetch('http://localhost:5000/wishlist', {
+    fetch('https://trusted-furniture-server.vercel.app/wishlist', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -67,9 +66,12 @@ console.log(wishlist)
       <div className="card-body lg:w-2/3">
         <div>
         <h2 className="card-title">{name}</h2>
-        <div className="flex"><p>Seller: {email}</p>
+        <div className="flex">
+          <p>SellerName: {sellerName}</p>
+          <p>SellerEmail: {email}</p>
+        
         {
-          userN?.isVerified &&  <FaCheck className="bg-blue-600 rounded-full"/>
+          user?.verified === true &&  <FaCheck className="bg-blue-600 rounded-full"/>
         }
        
         </div>
