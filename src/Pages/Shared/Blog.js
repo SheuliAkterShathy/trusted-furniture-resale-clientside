@@ -2,8 +2,8 @@ import React from "react";
 
 const Blog = () => {
   return (
-    <div className="px-8 pt-8">
-      <div className="mb-8 rounded-lg p-12">
+    <div className="pt-8">
+      <div className="mb-8 rounded-lg p-8">
         <h2 className="text-xl font-semibold mb-3 text-orange-300">
           Questions No 1:What are the different ways to manage a state in a
           React application?
@@ -33,7 +33,7 @@ const Blog = () => {
           the available state
         </p>
       </div>
-      <div className="mb-8 bg-pink-10 rounded-lg p-12">
+      <div className="mb-8 bg-pink-10 rounded-lg p-8">
         <h2 className="text-xl font-semibold mb-3 text-orange-300">
           Questions No 2:How does prototypical inheritance work?
         </h2>
@@ -51,7 +51,7 @@ const Blog = () => {
         </p>
       </div>
 
-      <div className="mb-8 bg-pink-10 rounded-lg p-12">
+      <div className="mb-8 bg-pink-10 rounded-lg p-8">
         <h2 className="text-xl font-semibold mb-3 text-orange-300">
           Questions No 3: What is a unit test? Why should we write unit tests?
         </h2>
@@ -68,7 +68,7 @@ const Blog = () => {
           development life cycle.
         </p>
       </div>
-      <div className="mb-8 bg-amber-0 rounded-lg p-12">
+      <div className="mb-8 bg-amber-0 rounded-lg p-8">
         <h2 className="text-xl font-semibold mb-3 text-orange-300">
           Questions No 4: React vs. Angular vs. Vue?
         </h2>

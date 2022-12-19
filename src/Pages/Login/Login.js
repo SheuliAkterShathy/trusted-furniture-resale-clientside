@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -11,28 +12,41 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  const [loginUserEmail, setLoginUserEmail] = useState('');
+   const [loginUserEmail, setLoginUserEmail] = useState('');
   const [loading, setLoading] = useState(false);
-  const [token] = useToken(loginUserEmail)
+   const [token] = useToken(loginUserEmail)
   const { signIn, signInWithGoogle } = useContext(AuthContext);
   const [loginError, setLoginError] = useState('');
 
 
+ 
+useEffect(()=>{
   if (token) {
     navigate(from, { replace: true });
-    setLoading(false)
+    // setLoading(false)
 }
+},[token,from,navigate])
 
-console.log(loginUserEmail)
+
   const handleLogin = data => {
     setLoading(true)
-    console.log(data);
+    // console.log(data);
     setLoginError('');
     signIn(data.email, data.password)
         .then(result => {
-            const user = result.user;
-             toast.success("User login successfully")
-             console.log(user);
+            // const user = result.user;
+            fetch(`http://localhost:5000/jwt?email=${data.email}`)
+            .then(res => res.json())
+            .then(data => {
+              if (data.accessToken) {
+                localStorage.setItem('accessToken', data.accessToken);
+                
+                toast.success("User login successfully")
+                // navigate(from, { replace: true });
+                setLoading(false)
+            }
+            });
+            //  console.log(user);
              setLoginUserEmail(data.email);
            
         })
@@ -49,9 +63,19 @@ const handleGoogleSignIn = () => {
       // setLoading(false);
       const user = result.user;
       storeGoogleUserInfo(user.displayName,user.email, user.role="buyer")
-      setLoginUserEmail(user.email);
-      console.log(user);
+       setLoginUserEmail(user.email);
+      // console.log(user);
         // navigate(from, { replace: true });
+        fetch(`http://localhost:5000/jwt?email=${user.email}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.accessToken) {
+            localStorage.setItem('accessToken', data.accessToken);
+            
+            // toast.success("User login successfully")
+            navigate(from, { replace: true });
+        }
+        });
     })
     .catch((error) => {
       console.error(error);
@@ -70,7 +94,7 @@ const storeGoogleUserInfo = (name, email,role) =>{
   })
   .then(res => res.json())
   .then(data => {
-      console.log(data);
+      // console.log(data);
       
   })
 }

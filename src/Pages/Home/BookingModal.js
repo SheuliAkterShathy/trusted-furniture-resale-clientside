@@ -4,7 +4,7 @@ import { AuthContext } from "../../contexts/AuthProvider";
 
 const BookingModal = ({productItem,setProductItem,refetch}) => {
     const {name,resalePrice} = productItem;
-    console.log(productItem)
+    // console.log(productItem)
     const { user } = useContext(AuthContext);
 
     const handleBooking = event => {
@@ -24,7 +24,7 @@ const BookingModal = ({productItem,setProductItem,refetch}) => {
             location
         }
 
-       console.log(booking)
+      //  console.log(booking)
         fetch('https://trusted-furniture-server.vercel.app/bookings', {
             method: 'POST',
             headers: {
@@ -34,7 +34,7 @@ const BookingModal = ({productItem,setProductItem,refetch}) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.acknowledged) {
                     setProductItem(null);
                     toast.success('Booking is confirmed successfully');

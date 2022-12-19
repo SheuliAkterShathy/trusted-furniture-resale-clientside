@@ -64,19 +64,19 @@ const router = createBrowserRouter([
         // },
         {
             path: '/dashboard/addProducts',
-            element: <SellerRoute><AddProducts></AddProducts></SellerRoute>
+            element: <AddProducts></AddProducts>
         },
         {
             path: '/dashboard/myProducts',
-            element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
+            element: <MyProducts></MyProducts>
         },
         {
             path: '/dashboard/myOrders',
-            element: <BuyerRoute><MyOrders></MyOrders></BuyerRoute>
+            element: <MyOrders></MyOrders>
         },
         {
             path: '/dashboard/wishlist',
-            element: <BuyerRoute><MyWishlist></MyWishlist></BuyerRoute>
+            element: <MyWishlist></MyWishlist>
         },
         {
             path:'/dashboard/allSellers',

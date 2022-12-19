@@ -13,9 +13,10 @@ const Product = ({product,setProductItem}) => {
     queryKey : ['user', name],
     queryFn : async ()=>{
       const res = await fetch(`https://trusted-furniture-server.vercel.app/user?email=${email}`)
-      const data = await res.json()
-      console.log(data)
-      return data
+
+      const data = await res.json();
+      // console.log(data)
+      return data;
     }
   })
 

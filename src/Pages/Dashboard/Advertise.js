@@ -10,7 +10,7 @@ const Advertise = () => {
         "https://trusted-furniture-server.vercel.app/advertise"
       );
       const data = await res.json();
-      console.log(data);
+      // console.log(data);
       return data;
     },
   });
@@ -23,7 +23,8 @@ const Advertise = () => {
       <>
         {advertiseProduct?.length &&
           advertiseProduct.map((advertise) => (
-            <div className="card card-compact bg-base-100 shadow-xl">
+            <div className="card card-compact bg-base-100 shadow-xl" key={advertise._id}>
+             
               <figure>
                 <img
                   className="h-40 w-full"
