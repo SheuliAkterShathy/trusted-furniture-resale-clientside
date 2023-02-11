@@ -4,7 +4,7 @@ import Main from "../../Layout/Main";
 import AddProducts from "../../Pages/Dashboard/AddProducts";
 import AllBuyers from "../../Pages/Dashboard/AllBuyers";
 import AllSellers from "../../Pages/Dashboard/AllSellers";
-import Dashboard from "../../Pages/Dashboard/Dashboard";
+
 import MyOrders from "../../Pages/Dashboard/MyOrders";
 import MyProducts from "../../Pages/Dashboard/MyProducts";
 import MyWishlist from "../../Pages/Dashboard/MyWishlist";
@@ -13,12 +13,13 @@ import Home from "../../Pages/Home/Home";
 import Products from "../../Pages/Home/Products";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Login/Register";
+import About from "../../Pages/Shared/About";
 import Blog from "../../Pages/Shared/Blog";
 import ErrorPage from "../../Pages/Shared/ErrorPage";
 import AdminRoute from "./AdminRoute";
-import BuyerRoute from "./BuyerRoute";
+
 import PrivateRoute from "./PrivateRoute";
-import SellerRoute from "./SellerRoute";
+
 
 const router = createBrowserRouter([
 {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
             element: <Blog></Blog>
         },
         {
+            path: '/about',
+            element: <About></About>
+        },
+        {
             path: '/categories/:id',
             element: <PrivateRoute><Products></Products></PrivateRoute>,
             loader: ({ params }) =>
@@ -58,10 +63,7 @@ const router = createBrowserRouter([
     element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
     errorElement:<ErrorPage></ErrorPage>,
     children: [
-        // {
-        //     path: '/dashboard',
-        //     element: <Dashboard></Dashboard>
-        // },
+       
         {
             path: '/dashboard/addProducts',
             element: <AddProducts></AddProducts>

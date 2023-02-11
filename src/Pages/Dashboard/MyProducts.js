@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+
 import { AuthContext } from "../../contexts/AuthProvider";
 import Loading from "../Shared/Loading";
 
 const MyProducts = () => {
-  const navigate = useNavigate();
+
   const { user } = useContext(AuthContext);
 
   const {
@@ -36,9 +36,6 @@ const MyProducts = () => {
     if (proceed) {
       fetch(`https://trusted-furniture-server.vercel.app/myProducts/${id}`, {
         method: "DELETE",
-        headers: {
-          // authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
       })
         .then((res) => res.json())
         .then((data) => {
@@ -76,7 +73,7 @@ const MyProducts = () => {
   return (
     <div>
       <div className="">
-        <table className="table w-full">
+        <table className="table">
           <thead>
             <tr>
               <th></th>
@@ -131,7 +128,7 @@ const MyProducts = () => {
                 ))}
               </>
             ) : (
-              <h3 className="text-4xl text-center text-orange">
+              <h3 className="text-2xl text-center w-full">
                 No Products are Abailable For Sells now{" "}
               </h3>
             )}

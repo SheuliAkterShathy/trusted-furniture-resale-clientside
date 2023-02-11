@@ -2,12 +2,18 @@ import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import Category from "./Category";
 import Advertise from "../Dashboard/Advertise";
+import Blog from "./Blog/Blog";
+import Archieves from "./Blog/Archieves";
+import Faq from "./Faq";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const { data: categories = [] } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
-      const res = await fetch("https://trusted-furniture-server.vercel.app/categories");
+      const res = await fetch(
+        "https://trusted-furniture-server.vercel.app/categories"
+      );
       const data = await res.json();
       return data;
     },
@@ -23,18 +29,19 @@ const Home = () => {
               <strong className="">Trusted Furniture</strong>
             </h1>
             <p className="mt-6 mb-8 text-lg sm:mb-12">
-              Our main purpose is to maintain quality product.We always try to serve on time.
+              Our main purpose is to maintain quality product.We always try to
+              serve on time.
               <br className="hidden md:inline lg:hidden" />
-             To Satisfy customer wo do our best.
+              To Satisfy customer wo do our best.
             </p>
             <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-              <a
+              <Link
                 rel="noopener noreferrer"
                 href="#"
                 className="px-8 py-3 text-lg font-semibold rounded  border-2 border-amber-500"
               >
                 Bye Now
-              </a>
+              </Link>
             </div>
           </div>
           <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
@@ -48,21 +55,42 @@ const Home = () => {
       </section>
 
       {/* categories section */}
-      <section>
-        <div className="grid lg:grid-cols-3 gap-6 my-12 mx-8 m-auto">
+      <section className="my-20">
+        <div className="grid lg:grid-cols-3 mx-8 gap-8">
           {categories.map((category) => (
             <Category category={category} key={category._id}></Category>
           ))}
         </div>
       </section>
 
+      <section className="my-28">
+        <h2 className="text-center text-3xl font-bold mb-5">
+          Best Seller Products
+        </h2>
+        <div className=" mx-10 hidden md:block shadow">
+        <hr />
+          <Blog></Blog>
+          <hr />
+        </div>
+
+        <div className="border-t border-b border-b-black border-t-black mx-10 md:hidden">
+         
+          <Archieves></Archieves>
+        </div>
+      </section>
+
       {/* Advertise */}
+      
       <section className="mx-8 m-auto">
         <Advertise></Advertise>
       </section>
 
+      <section>
+      <Faq></Faq>
+      </section>
+
       {/* Customer Review */}
-      <div className="mx-8 m-auto">
+      <div className="mx-8  mt-20">
         <h2 className="text-center text-3xl font-bold">Customer Review</h2>
         <div className="grid md:grid-cols-3 gap-6 my-6">
           <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700   shadow-md">
@@ -99,7 +127,7 @@ const Home = () => {
               </p>
               <p>
                 Prompt delivery and great service. Staff at the store and
-                manager are very friendly. 
+                manager are very friendly.
               </p>
             </div>
           </div>
@@ -169,8 +197,8 @@ const Home = () => {
             <div className="p-4 space-y-2 text-sm">
               <p>
                 Sceptical about their doors frames and shutters. However quality
-                of product and installation was satisfactory.I will buy only from Trusted Furniture in the
-                future.
+                of product and installation was satisfactory.I will buy only
+                from Trusted Furniture in the future.
               </p>
               <p>
                 Purchased office chairs 5 years ago. Found them to be aesthetic
@@ -180,6 +208,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+
     </div>
   );
 };

@@ -3,8 +3,8 @@ import React, { useContext } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthProvider";
 import useAdmin from "../hooks/useAdmin";
-import useBuyer from "../hooks/useBuyer";
-import useSeller from "../hooks/useSeller";
+// import useBuyer from "../hooks/useBuyer";
+// import useSeller from "../hooks/useSeller";
 import Navbar from "../Pages/Shared/Navbar";
 
 // const DashboardLayout = () => {
@@ -74,7 +74,7 @@ const DashboardLayout = () => {
   const {data: currentUser = []} = useQuery({
     queryKey: ['user'],
     queryFn: async() => {
-      const res = await fetch(`http://localhost:5000/user?email=${user?.email}`)
+      const res = await fetch(`https://trusted-furniture-server.vercel.app/user?email=${user?.email}`)
       const data = res.json();
       return data;
     }
@@ -93,24 +93,24 @@ const DashboardLayout = () => {
         </div>
         <div className="drawer-side">
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 text-base-content">
+          <ul className="menu p-4 w-80">
             {currentUser.role==="buyer" && (
               <>
                 <li>
-                  <NavLink className={({isActive})=> isActive? 'text-amber-500': undefined} to="/dashboard/myOrders">My orders</NavLink>
+                  <NavLink className={({isActive})=> isActive? 'text-amber-500 underline underline-offset-4': undefined} to="/dashboard/myOrders">My orders</NavLink>
                 </li>
                 <li>
-                  <NavLink className={({isActive})=> isActive? 'text-amber-500': undefined} to="/dashboard/wishlist">My Wishlist</NavLink>
+                  <NavLink className={({isActive})=> isActive? 'text-amber-500 underline underline-offset-4': undefined} to="/dashboard/wishlist">My Wishlist</NavLink>
                 </li>
               </>
             )}
             {currentUser.role==="seller" && (
               <>
                 <li>
-                  <NavLink className={({isActive})=> isActive? 'text-amber-500': undefined} to="/dashboard/addProducts">Add products</NavLink>
+                  <NavLink className={({isActive})=> isActive? 'text-amber-500 underline underline-offset-4': undefined} to="/dashboard/addProducts">Add products</NavLink>
                 </li>
                 <li>
-                  <NavLink className={({isActive})=> isActive? 'text-amber-500': undefined} to="/dashboard/myProducts">My products</NavLink>
+                  <NavLink className={({isActive})=> isActive? 'text-amber-500 underline underline-offset-4': undefined} to="/dashboard/myProducts">My products</NavLink>
                 </li>
               </>
             )}
@@ -119,10 +119,10 @@ const DashboardLayout = () => {
               <>
                 {" "}
                 <li>
-                  <NavLink className={({isActive})=> isActive? 'text-amber-500': undefined} to="/dashboard/allSellers">All Sellers</NavLink>
+                  <NavLink className={({isActive})=> isActive? 'text-amber-500 underline underline-offset-4': undefined} to="/dashboard/allSellers">All Sellers</NavLink>
                 </li>{" "}
                 <li>
-                  <NavLink className={({isActive})=> isActive? 'text-amber-400': undefined} to="/dashboard/allBuyers">All Buyers</NavLink>
+                  <NavLink className={({isActive})=> isActive? 'text-amber-400 underline underline-offset-4': undefined} to="/dashboard/allBuyers">All Buyers</NavLink>
                 </li>{" "}
               </>
             )}

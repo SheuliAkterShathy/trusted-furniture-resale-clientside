@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useContext } from "react";
+
 import toast from "react-hot-toast";
 import { FaCheck, FaHeart } from "react-icons/fa";
-import { AuthContext } from "../../contexts/AuthProvider";
+
 import Loading from "../Shared/Loading";
 
 const Product = ({product,setProductItem}) => {

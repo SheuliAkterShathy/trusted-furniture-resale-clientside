@@ -35,7 +35,7 @@ useEffect(()=>{
     signIn(data.email, data.password)
         .then(result => {
             // const user = result.user;
-            fetch(`http://localhost:5000/jwt?email=${data.email}`)
+            fetch(`https://trusted-furniture-server.vercel.app/jwt?email=${data.email}`)
             .then(res => res.json())
             .then(data => {
               if (data.accessToken) {
@@ -66,7 +66,7 @@ const handleGoogleSignIn = () => {
        setLoginUserEmail(user.email);
       // console.log(user);
         // navigate(from, { replace: true });
-        fetch(`http://localhost:5000/jwt?email=${user.email}`)
+        fetch(`https://trusted-furniture-server.vercel.app/jwt?email=${user.email}`)
         .then(res => res.json())
         .then(data => {
           if (data.accessToken) {
@@ -105,14 +105,19 @@ const storeGoogleUserInfo = (name, email,role) =>{
   return (
    <>
    
-    <div className="md:flex my-12 justify-around">
+   <div>
+    <div className="mx-6 mt-6 font-semibold">
+      <p>Admin: tarikul25@gmail.com</p>
+      <p>Pass: 123456</p>
+    </div>
+   <div className="md:flex gap-6 my-12 justify-around mx-4">
     <div>
-      <img
+      <img className="h-[600px] w-[93%] rounded-md mb-3 md:mb-0"
         src="https://img.freepik.com/free-vector/cartoon-character-filling-form-survey-checklist-man-writing-test-signing-business-medical-document-flat-illustration_74855-20483.jpg?size=626&ext=jpg&ga=GA1.2.258402809.1666072521&semt=sph"
         alt=""
       />
     </div>
-    <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-amber-50 ">
+    <div className="w-full  max-w-md p-8 space-y-3 rounded-xl bg-amber-50 ">
       <h1 className="text-2xl font-bold text-center">Login</h1>
       <form onSubmit={handleSubmit(handleLogin)}
         novalidate=""
@@ -151,9 +156,9 @@ const storeGoogleUserInfo = (name, email,role) =>{
             className="w-full px-4 py-3 rounded-md"
           />
           <div className="flex justify-end text-xs">
-            <a rel="noopener noreferrer" href="#">
+            <p>
               Forgot Password?
-            </a>
+            </p>
           </div>
           {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
         </div>
@@ -206,6 +211,7 @@ const storeGoogleUserInfo = (name, email,role) =>{
       </p>
     </div>
   </div>
+   </div>
 
    </>
   );

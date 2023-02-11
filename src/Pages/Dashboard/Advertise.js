@@ -23,7 +23,7 @@ const Advertise = () => {
       <>
         {advertiseProduct?.length &&
           advertiseProduct.map((advertise) => (
-            <div className="card card-compact bg-base-100 shadow-xl" key={advertise._id}>
+            <div className="card card-compact shadow-xl" key={advertise._id}>
              
               <figure>
                 <img

@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
 // const axios = require('axios');

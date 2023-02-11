@@ -95,9 +95,9 @@ if(loading){
 }
   return (
     <>
-         <div className="md:flex my-12 justify-around items-center">
+         <div className="md:flex my-12 justify-around items-center gap-6 mx-5">
       <div>
-        <img
+        <img className="h-[685px] w-[92%] rounded-md"
           src="https://img.freepik.com/free-vector/cartoon-character-filling-form-survey-checklist-man-writing-test-signing-business-medical-document-flat-illustration_74855-20483.jpg?size=626&ext=jpg&ga=GA1.2.258402809.1666072521&semt=sph"
           alt=""
         />
@@ -169,9 +169,9 @@ if(loading){
             />
             {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
             <div className="flex justify-end text-xs">
-              <a rel="noopener noreferrer" href="#">
+              <p rel="noopener noreferrer" href="#">
                 Forgot Password?
-              </a>
+              </p>
             </div>
           </div>
           {signUpError && <p className='text-red-600'>{signUpError}</p>}

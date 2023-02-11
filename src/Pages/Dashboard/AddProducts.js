@@ -93,7 +93,7 @@ if(isLoading){
           <div className="form-control w-full">
             <label className="label">
               {" "}
-              <span className="label-text"> Product Name</span>
+              <span className=""> Product Name</span>
             </label>
             <input
               type="text"
@@ -109,7 +109,7 @@ if(isLoading){
           <div className="form-control w-full max-w-xs">
             <label className="label">
               {" "}
-              <span className="label-text">Resale Price</span>
+              <span className="">Resale Price</span>
             </label>
             <input
               type="text"
@@ -125,7 +125,7 @@ if(isLoading){
           <div className="form-control w-full max-w-xs">
             <label className="label">
               {" "}
-              <span className="label-text">Orginal Price</span>
+              <span className="">Orginal Price</span>
             </label>
             <input
               type="text"
@@ -141,7 +141,7 @@ if(isLoading){
           <div className="form-control w-full max-w-xs">
             <label className="label">
               {" "}
-              <span className="label-text">Use</span>
+              <span className="">Use</span>
             </label>
             <input
               type="text"
@@ -157,7 +157,7 @@ if(isLoading){
           <div className="form-control w-full max-w-xs">
             <label className="label">
               {" "}
-              <span className="label-text">Seller Name</span>
+              <span className="">Seller Name</span>
             </label>
             <input
               type="text"
@@ -174,7 +174,7 @@ if(isLoading){
           <div className="form-control w-full max-w-xs">
             <label className="label">
               {" "}
-              <span className="label-text">Phn Number</span>
+              <span className="">Phn Number</span>
             </label>
             <input
               type="text"
@@ -190,7 +190,7 @@ if(isLoading){
           <div className="form-control w-full max-w-xs">
             <label className="label">
               {" "}
-              <span className="label-text">Location</span>
+              <span className="">Location</span>
             </label>
             <input
               type="text"
@@ -232,7 +232,7 @@ if(isLoading){
           <div className="form-control w-full max-w-xs">
             <label className="label">
               {" "}
-              <span className="label-text">Photo</span>
+              <span className="">Photo</span>
             </label>
             <input
               type="file"
@@ -247,7 +247,7 @@ if(isLoading){
           <div className="form-control w-full max-w-xs">
             <label className="label">
               {" "}
-              <span className="label-text">Products Details</span>
+              <span className="">Products Details</span>
             </label>
             <textarea
               type="text"
