@@ -106,9 +106,20 @@ const storeGoogleUserInfo = (name, email,role) =>{
    <>
    
    <div>
-    <div className="mx-6 mt-6 font-semibold">
+    <div className="grid md:grid-cols-3 gap-10 p-5">
+    <div className="p-8 font-semibold shadow-lg bg-orange-50 rounded-md border border-orange-100">
+      <p>Seller: towa@gmail.com</p>
+      <p>Pass: 123456</p>
+    </div>
+    
+    <div className="p-8 font-semibold shadow-lg bg-orange-50 rounded-md border border-orange-100">
+      <p>Buyer: tisha@g.com</p>
+      <p>Pass: 123456</p>
+    </div>
+    <div className="p-8 font-semibold shadow-lg bg-orange-50 rounded-md border border-orange-100">
       <p>Admin: tarikul25@gmail.com</p>
       <p>Pass: 123456</p>
+    </div>
     </div>
    <div className="md:flex gap-6 my-12 justify-around mx-4">
     <div>

@@ -2,13 +2,13 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { ToggleMode } from "../../App";
 import { AuthContext } from "../../contexts/AuthProvider";
-import { useState } from 'react'
+
 
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const {toggle, setToggle} = useContext(ToggleMode);
-  const [enabled, setEnabled] = useState(false)
+  // const [enabled, setEnabled] = useState(false)
   const handleLogOut = () => {
     logOut()
       .then(() => {})

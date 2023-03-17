@@ -16,7 +16,7 @@ const Category = ({ category }) => {
 
         <div className="card-actions mt-16">
           <Link to={`categories/${category._id}`}>
-            <button className="bg-orange-400 hover:bg-orange-300 p-3 rounded-md ">
+            <button className="bg-orange-40 hover:bg-orange-3 p-3 rounded-md bg-gradient-to-r from-orange-400 to-amber-300 animate-pulse">
               See Category Products
             </button>
           </Link>

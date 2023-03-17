@@ -19,7 +19,11 @@ const Advertise = () => {
     return <Loading></Loading>;
   }
   return (
-    <div className="grid gap-6 md:grid-cols-3 my-24">
+   <section>
+     <h2 className="text-2xl font-bold sm:text-4xl text-center">
+        Advertise Sections
+      </h2>
+     <div className="grid gap-6 md:grid-cols-3 my-24">
       <>
         {advertiseProduct?.length &&
           advertiseProduct.map((advertise) => (
@@ -51,6 +55,7 @@ const Advertise = () => {
           ))}
       </>
     </div>
+   </section>
   );
 };
 

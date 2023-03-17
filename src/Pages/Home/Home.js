@@ -6,6 +6,8 @@ import Blog from "./Blog/Blog";
 import Archieves from "./Blog/Archieves";
 import Faq from "./Faq";
 import { Link } from "react-router-dom";
+import QuestionAnswer from "./QuestionAnswer";
+
 
 const Home = () => {
   const { data: categories = [] } = useQuery({
@@ -38,17 +40,17 @@ const Home = () => {
               <Link
                 rel="noopener noreferrer"
                 href="#"
-                className="px-8 py-3 text-lg font-semibold rounded  border-2 border-amber-500"
+                className="px-8 py-3 text-lg font-semibold rounded  border-2 border-amber-500 "
               >
                 Bye Now
               </Link>
             </div>
           </div>
-          <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+          <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 ">
             <img
               src="https://img.freepik.com/free-psd/contemporary-living-room-mockup-psd-interior-design_53876-129130.jpg?size=626&ext=jpg&ga=GA1.2.258402809.1666072521&semt=sph"
               alt=""
-              className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128"
+              className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128 "
             />
           </div>
         </div>
@@ -85,6 +87,8 @@ const Home = () => {
         <Advertise></Advertise>
       </section>
 
+
+      <QuestionAnswer></QuestionAnswer>
       <section>
       <Faq></Faq>
       </section>
@@ -208,6 +212,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+    
 
     </div>
   );
