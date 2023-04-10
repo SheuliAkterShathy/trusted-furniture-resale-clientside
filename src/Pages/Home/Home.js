@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import QuestionAnswer from "./QuestionAnswer";
 
 
+
 const Home = () => {
   const { data: categories = [] } = useQuery({
     queryKey: ["categories"],
@@ -40,7 +41,7 @@ const Home = () => {
               <Link
                 rel="noopener noreferrer"
                 href="#"
-                className="px-8 py-3 text-lg font-semibold rounded  border-2 border-amber-500 "
+                className="px-8 py-3 text-lg font-semibold rounded  border-2 border-amber-500  "
               >
                 Bye Now
               </Link>
@@ -55,6 +56,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+
+       
 
       {/* categories section */}
       <section className="my-20">
